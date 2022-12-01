@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Screenshot</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <article>
+        <form onsubmit="doScreenshot();return false;">
+            <input type="url" name="url" placeholder="Example: https://blog.yasifys.tk/">
+            <button type="submit">Screenshot</button>
+        </form>
+        <center><img alt="Crawled Site" style="display: none;"></center>
+    </article>
+
+        <div id="footer"><center>Created by RollMyst#7806</center></div>
+
+    <script>
+        function doScreenshot() {
+            const url = document.querySelector('input').value;
+            if (!url) return;
+
+            const image = document.querySelector('img');
+            image.style.display = 'none';
+            image.src = '/screenshot?url='+encodeURIComponent(url);
+            image.onload = () => {
+                image.style.display = 'block';
+            };
+        }
+    </script>
+</body>
+</html>
